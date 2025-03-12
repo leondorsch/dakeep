@@ -86,8 +86,8 @@ export class NoteListService {
   }
 
   subNotesList() {
-    let ref = collection(this.firestore, "notes/5Li4polKq6w5GvhaAYC0/notesExtra");
-    let limitCount = query(ref, limit(100));
+    // let ref = collection(this.firestore, "notes/5Li4polKq6w5GvhaAYC0/notesExtra");
+    let limitCount = query(this.getNotesRef(), limit(100));
     return onSnapshot(limitCount, (list) => {
       this.normalNotes = []
       list.forEach(element => {
